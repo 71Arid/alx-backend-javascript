@@ -4,6 +4,6 @@ export default function iterateThroughObject(reportWithIterator) {
     const addedStr = value ? `${value} | ` : '';
     str += addedStr;
   }
-  str = str.slice(0, -2);
+  str = str.slice(0, -3);
   return str;
 }
