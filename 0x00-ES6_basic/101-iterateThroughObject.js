@@ -1,9 +1,7 @@
 export default function iterateThroughObject(reportWithIterator) {
-  let str = '';
+  let str = [];
   for (const value of reportWithIterator) {
-    const addedStr = value ? `${value} | ` : '';
-    str += addedStr;
+    str.push(value);
   }
-  str = str.slice(0, -3);
-  return str;
+  return str.join(' | ');
 }
