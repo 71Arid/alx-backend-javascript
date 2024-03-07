@@ -7,7 +7,7 @@ export default function guardrail(mathFunction) {
     queue.push(msq);
     return queue;
   } catch (err) {
-    queue.push(err.message);
+    queue.push(String(err));
     queue.push(msq);
     return queue;
   }
