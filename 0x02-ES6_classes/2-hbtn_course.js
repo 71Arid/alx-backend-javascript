@@ -9,7 +9,7 @@ export default class HolbertonCourse {
     if (typeof newName === 'string') {
       this._name = newName;
     } else {
-      throw TypeError('Name must be a string');
+      throw new TypeError('Name must be a string');
     }
   }
 
@@ -17,7 +17,7 @@ export default class HolbertonCourse {
     if (typeof newLength === 'number') {
       this._length = newLength;
     } else {
-      throw TypeError('Length must be a number');
+      throw new TypeError('Length must be a number');
     }
   }
 
