@@ -10,6 +10,7 @@ export default class HolbertonCourse {
       this._name = newName;
     } else {
       throw TypeError('Name must be a string');
+    }
   }
 
   set length(newLength) {
