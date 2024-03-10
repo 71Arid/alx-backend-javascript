@@ -7,8 +7,9 @@ export default class Building {
       }
     }
   }
-  set sqft(newSqft) {
-    this._sqrt = newSqrt;
+
+  set sqft(v) {
+    this._sqrt = v;
   }
 
   get sqft() {
