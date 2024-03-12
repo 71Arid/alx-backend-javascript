@@ -4,12 +4,14 @@ export default function updateStudentGradeByCity(array, city, newGrade) {
     newarr = array.filter((value) => value.location === city)
       .map((value) => {
         const obj = value;
-        for (const grade of newGrade) {
-          if (obj.id === grade.studentId) {
-            obj.grade = grade.grade;
+        for (const g of newGrade) {
+          if (obj.id === g.studentId) {
+            obj.grade = g.grade;
           }
         }
-        obj.grade = 'N/A';
+        if (!obj.grade) {
+          obj.grade = 'N/A';
+        }
         return obj;
       });
   }
