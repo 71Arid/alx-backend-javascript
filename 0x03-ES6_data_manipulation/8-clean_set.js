@@ -8,10 +8,9 @@ export default function cleanSet(set, startString) {
         if (sliced === startString) {
           str += `${v.slice(len)}-`;
         }
-       }
+      }
     });
     return str.slice(0, -1);
-  } else {
-    return str;
   }
+  return str;
 }
