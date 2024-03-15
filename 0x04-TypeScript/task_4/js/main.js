@@ -1,23 +1,28 @@
 "use strict";
+/// <reference path = "./subjects/Cpp.ts" />
+/// <reference path = "./subjects/Java.ts" /> 
+/// <reference path = "./subjects/React.ts" /> 
+/// <reference path = "./subjects/Subject.ts" /> 
+/// <reference path = "./subjects/Teacher.ts" /> 
 exports.__esModule = true;
-var subjects_1 = require("./js/subjects");
-var cTeacher = {
+exports.cTeacher = exports.react = exports.java = exports.cpp = void 0;
+exports.cpp = new Subjects.Cpp();
+exports.java = new Subjects.Java();
+exports.react = new Subjects.React();
+exports.cTeacher = {
     firstName: 'John',
     lastName: 'Doe',
     experienceTeachingC: 10
 };
 console.log('C++');
-var cppSubject = new subjects_1.Subjects.Cpp();
-cppSubject.setTeacher(cTeacher);
-console.log(cppSubject.getRequirements());
-console.log(cppSubject.getAvailableTeacher());
-console.log('\nJava');
-var javaSubject = new subjects_1.Subjects.Java();
-javaSubject.setTeacher(cTeacher); // No Java experience, so no teacher available
-console.log(javaSubject.getRequirements());
-console.log(javaSubject.getAvailableTeacher());
-console.log('\nReact');
-var reactSubject = new subjects_1.Subjects.React();
-reactSubject.setTeacher(cTeacher); // No React experience, so no teacher available
-console.log(reactSubject.getRequirements());
-console.log(reactSubject.getAvailableTeacher());
+exports.cpp.setTeacher(exports.cTeacher);
+console.log(exports.cpp.getRequirements());
+console.log(exports.cpp.getAvailableTeacher());
+console.log('Java');
+exports.java.setTeacher(exports.cTeacher);
+console.log(exports.java.getRequirements());
+console.log(exports.java.getAvailableTeacher());
+console.log('React');
+exports.react.setTeacher(exports.cTeacher);
+console.log(exports.react.getRequirements());
+console.log(exports.react.getAvailableTeacher());
