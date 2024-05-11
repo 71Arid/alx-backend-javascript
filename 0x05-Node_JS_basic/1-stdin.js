@@ -6,3 +6,5 @@ process.stdin.once('data', (input) => {
   process.stdout.write('This important software is now closing\n');
   process.exit(0);
 });
+
+module.exports = process;
