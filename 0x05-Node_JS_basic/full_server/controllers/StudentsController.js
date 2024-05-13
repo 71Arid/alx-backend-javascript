@@ -4,7 +4,7 @@ class StudentsController {
   static getAllStudents(req, res) {
     readDatabase(process.argv[2])
       .then((students) => {
-        let response = 'This is the list of our students'
+        let response = 'This is the list of our students';
         for (const field in students) {
           if (Object.prototype.hasOwnProperty.call(students, field)) {
             response += `Number of students in ${field}: ${students[field].length}. List: ${students[field].join(', ')}\n`;
@@ -13,7 +13,7 @@ class StudentsController {
         response = response.slice(0, -1);
         res.status(200).send(`${response}`);
       })
-      .catch((err) => {
+      .catch(() => {
         res.status(500).send('Cannot load the database');
       });
   }
@@ -31,12 +31,12 @@ class StudentsController {
         let response = '';
         for (const field in students) {
           if (field === major) {
-            response += `List: ${students[field].join(', ')}`
+            response += `List: ${students[field].join(', ')}`;
           }
         }
         res.status(200).send(response);
       })
-      .catch((err) => {
+      .catch(() => {
         res.status(500).send('Cannot load the database');
       });
   }
