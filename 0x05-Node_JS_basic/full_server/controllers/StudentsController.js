@@ -5,19 +5,10 @@ class StudentsController {
     readDatabase(process.argv[2])
       .then((students) => {
         let response = 'This is the list of our students';
-        const cmpFxn = (a, b) => {
-          if (a[0].toLowerCase() < b[0].toLowerCase()) {
-            return -1;
+        for (const field in students) {
+          if (Object.prototype.hasOwnProperty.call(students, field)) {
+            response += `Number of students in ${field}: ${students[field].length}. List: ${students[field].join(', ')}\n`;
           }
-          if (a[0].toLowerCase() > b[0].toLowerCase()) {
-            return 1;
-          }
-            return 0;
-        };
-        const sortedEntries = Object.entries(students).sort(cmpFxn);
-
-        for (const [field, studentList] of sortedEntries) {
-          response += `Number of students in ${field}: ${studentList.length}. List: ${studentList.join(', ')}\n`;
         }
         response = response.slice(0, -1);
         res.status(200).send(`${response}`);
