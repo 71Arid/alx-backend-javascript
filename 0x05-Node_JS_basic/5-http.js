@@ -18,15 +18,15 @@ async function countStudents(path) {
         students[field] = [fields[0]];
       }
     });
-  
+
     response += `Number of students: ${data.length}\n`;
-  
+
     for (const field in students) {
       if (Object.prototype.hasOwnProperty.call(students, field)) {
         response += `Number of students in ${field}: ${students[field].length}. List: ${students[field].join(', ')}\n`;
       }
     }
-    return response.slice(0,-1);
+    return response.slice(0, -1);
   } catch (error) {
     throw new Error('Cannot load the database');
   }
