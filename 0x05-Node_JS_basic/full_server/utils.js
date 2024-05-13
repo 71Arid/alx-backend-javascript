@@ -18,10 +18,10 @@ function readDatabase(path) {
           }
         });
         resolve(students);
-    })
-    .catch((err) => {
-      reject(new Error('Cannot load the database'));
-    });
+      })
+      .catch(() => {
+        reject(new Error('Cannot load the database'));
+      });
   });
 }
 
