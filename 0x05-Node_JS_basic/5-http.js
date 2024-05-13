@@ -1,5 +1,5 @@
 const http = require('http');
-const fs = require('fs').promises;
+const { promises: fs } = require('fs');
 
 async function countStudents(path) {
   try {
