@@ -5,7 +5,8 @@ class StudentsController {
     readDatabase(process.argv[2])
       .then((students) => {
         let response = 'This is the list of our students';
-        for (const field in students) {
+        const sortedFields = Object.keys(students).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+        for (const field in sortedFields) {
           if (Object.prototype.hasOwnProperty.call(students, field)) {
             response += `Number of students in ${field}: ${students[field].length}. List: ${students[field].join(', ')}\n`;
           }
