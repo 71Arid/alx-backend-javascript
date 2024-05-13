@@ -5,8 +5,16 @@ class StudentsController {
     readDatabase(process.argv[2])
       .then((students) => {
         let response = 'This is the list of our students';
-        const sortedFields = Object.keys(students).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-        for (const field in sortedFields) {
+        const cmpFxn = (a, b) => {
+          if (a[0].toLowerCase() < b[0].toLowerCase()) {
+            return -1;
+          }
+          if (a[0].toLowerCase() > b[0].toLowerCase()) {
+            return 1;
+          }
+            return 0;
+        };
+        for (const field in Object.entries(students).sort(cmpFxn)) {
           if (Object.prototype.hasOwnProperty.call(students, field)) {
             response += `Number of students in ${field}: ${students[field].length}. List: ${students[field].join(', ')}\n`;
           }
