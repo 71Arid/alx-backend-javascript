@@ -49,9 +49,9 @@ const app = http.createServer((req, res) => {
         res.end(`This is the list of our students\n${content}`);
       })
       .catch((error) => {
-        res.statusCode = 500;
+        res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
-        res.end(`Internal Server Error\n${error}`);
+        res.end(`This is the list of our students\n${error.message}`);
       });
   }
 });
