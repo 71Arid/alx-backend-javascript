@@ -2,7 +2,9 @@ const fs = require('fs').promises;
 
 async function countStudents(path) {
   try {
-    let data = await fs.readFile(path, 'utf-8').split('\n').filter((line) => line.trim() !== '');
+    const filedata = await fs.readFile(path, 'utf-8');
+    const lines = filedata.split('\n');
+    let data = lines.filter((line) => line.trim() !== '');
     data = data.slice(1);
     const students = {};
     data.forEach((row) => {
