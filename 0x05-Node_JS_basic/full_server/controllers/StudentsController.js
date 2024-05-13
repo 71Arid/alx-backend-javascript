@@ -14,10 +14,10 @@ class StudentsController {
           }
             return 0;
         };
-        for (const field in Object.entries(students).sort(cmpFxn)) {
-          if (Object.prototype.hasOwnProperty.call(students, field)) {
-            response += `Number of students in ${field}: ${students[field].length}. List: ${students[field].join(', ')}\n`;
-          }
+        const sortedEntries = Object.entries(students).sort(cmpFxn);
+
+        for (const [field, studentList] of sortedEntries) {
+          response += `Number of students in ${field}: ${studentList.length}. List: ${studentList.join(', ')}\n`;
         }
         response = response.slice(0, -1);
         res.status(200).send(`${response}`);
