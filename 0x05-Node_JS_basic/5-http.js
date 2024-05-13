@@ -36,7 +36,7 @@ const hostname = 'localhost';
 const port = 1245;
 
 const app = http.createServer((req, res) => {
-  const url = req.url;
+  const { url } = req.url;
   if (url === '/') {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
