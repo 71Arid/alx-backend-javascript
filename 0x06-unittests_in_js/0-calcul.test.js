@@ -6,6 +6,9 @@ describe("calculateNumber", function() {
       assert.equal(calculateNumber(1, 3), 4);
     });
     it("", function() {
+      assert.equal(calculateNumber(1, 3.2), 4);
+    });
+    it("", function() {
       assert.equal(calculateNumber(1, 3.7), 5);
     });
     it("", function() {
